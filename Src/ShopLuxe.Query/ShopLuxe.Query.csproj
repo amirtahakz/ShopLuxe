@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopLuxe.Common\ShopLuxe.Common.csproj" />
+    <ProjectReference Include="..\ShopLuxe.Domain\ShopLuxe.Domain.csproj" />
+    <ProjectReference Include="..\ShopLuxe.Infrastructure\ShopLuxe.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
