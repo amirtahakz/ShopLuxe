@@ -8,7 +8,7 @@ using ShopLuxe.Infrastructure.Persistent.Ef;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace ShopLuxe.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Domain.CategoryAgg.Category", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.CategoryAgg.Category", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -52,7 +52,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Categories", "dbo");
                 });
 
-            modelBuilder.Entity("Domain.CommentAgg.Comment", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.CommentAgg.Comment", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -81,7 +81,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Domain.FavoriteAgg.Favorite", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.FavoriteAgg.Favorite", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -100,7 +100,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Favorites");
                 });
 
-            modelBuilder.Entity("Domain.OrderAgg.Order", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.OrderAgg.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -124,7 +124,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Orders", "order");
                 });
 
-            modelBuilder.Entity("Domain.ProductAgg.Product", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.ProductAgg.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -168,7 +168,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Products", "product");
                 });
 
-            modelBuilder.Entity("Domain.RoleAgg.Role", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.RoleAgg.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -186,7 +186,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Roles", "role");
                 });
 
-            modelBuilder.Entity("Domain.SellerAgg.Seller", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.SellerAgg.Seller", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -219,7 +219,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Sellers", "seller");
                 });
 
-            modelBuilder.Entity("Domain.SiteEntities.Banner", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.SiteEntities.Banner", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -245,7 +245,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Banners");
                 });
 
-            modelBuilder.Entity("Domain.SiteEntities.ShippingMethod", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.SiteEntities.ShippingMethod", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -266,7 +266,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("ShippingMethods");
                 });
 
-            modelBuilder.Entity("Domain.SiteEntities.Slider", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.SiteEntities.Slider", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -294,7 +294,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("Domain.UserAgg.User", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.UserAgg.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -346,13 +346,13 @@ namespace Infrastructure.Migrations
                     b.ToTable("Users", "user");
                 });
 
-            modelBuilder.Entity("Domain.CategoryAgg.Category", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.CategoryAgg.Category", b =>
                 {
-                    b.HasOne("Domain.CategoryAgg.Category", null)
+                    b.HasOne("ShopLuxe.Domain.CategoryAgg.Category", null)
                         .WithMany("Childs")
                         .HasForeignKey("ParentId");
 
-                    b.OwnsOne("Common.Domain.ValueObjects.SeoData", "SeoData", b1 =>
+                    b.OwnsOne("ShopLuxe.Common.Domain.ValueObjects.SeoData", "SeoData", b1 =>
                         {
                             b1.Property<Guid>("CategoryId")
                                 .HasColumnType("uniqueidentifier");
@@ -397,9 +397,9 @@ namespace Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.OrderAgg.Order", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.OrderAgg.Order", b =>
                 {
-                    b.OwnsOne("Domain.OrderAgg.OrderAddress", "OrderAddress", b1 =>
+                    b.OwnsOne("ShopLuxe.Domain.OrderAgg.OrderAddress", "OrderAddress", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
@@ -459,7 +459,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.OwnsMany("Domain.OrderAgg.OrderItem", "Items", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.OrderAgg.OrderItem", "Items", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
@@ -491,7 +491,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.OwnsOne("Domain.OrderAgg.ValueObjects.OrderDiscount", "Discount", b1 =>
+                    b.OwnsOne("ShopLuxe.Domain.OrderAgg.ValueObjects.OrderDiscount", "Discount", b1 =>
                         {
                             b1.Property<Guid>("OrderId")
                                 .HasColumnType("uniqueidentifier");
@@ -512,7 +512,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.OwnsOne("Domain.OrderAgg.ValueObjects.OrderShippingMethod", "ShippingMethod", b1 =>
+                    b.OwnsOne("ShopLuxe.Domain.OrderAgg.ValueObjects.OrderShippingMethod", "ShippingMethod", b1 =>
                         {
                             b1.Property<Guid>("OrderId")
                                 .HasColumnType("uniqueidentifier");
@@ -541,9 +541,9 @@ namespace Infrastructure.Migrations
                     b.Navigation("ShippingMethod");
                 });
 
-            modelBuilder.Entity("Domain.ProductAgg.Product", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.ProductAgg.Product", b =>
                 {
-                    b.OwnsOne("Common.Domain.ValueObjects.SeoData", "SeoData", b1 =>
+                    b.OwnsOne("ShopLuxe.Common.Domain.ValueObjects.SeoData", "SeoData", b1 =>
                         {
                             b1.Property<Guid>("ProductId")
                                 .HasColumnType("uniqueidentifier");
@@ -584,7 +584,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("ProductId");
                         });
 
-                    b.OwnsMany("Domain.ProductAgg.ProductImage", "Images", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.ProductAgg.ProductImage", "Images", b1 =>
                         {
                             b1.Property<Guid>("ProductId")
                                 .HasColumnType("uniqueidentifier");
@@ -611,7 +611,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("ProductId");
                         });
 
-                    b.OwnsMany("Domain.ProductAgg.ProductSpecification", "Specifications", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.ProductAgg.ProductSpecification", "Specifications", b1 =>
                         {
                             b1.Property<Guid>("ProductId")
                                 .HasColumnType("uniqueidentifier");
@@ -647,9 +647,9 @@ namespace Infrastructure.Migrations
                     b.Navigation("Specifications");
                 });
 
-            modelBuilder.Entity("Domain.RoleAgg.Role", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.RoleAgg.Role", b =>
                 {
-                    b.OwnsMany("Domain.RoleAgg.RolePermission", "Permissions", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.RoleAgg.RolePermission", "Permissions", b1 =>
                         {
                             b1.Property<Guid>("RoleId")
                                 .HasColumnType("uniqueidentifier");
@@ -674,9 +674,9 @@ namespace Infrastructure.Migrations
                     b.Navigation("Permissions");
                 });
 
-            modelBuilder.Entity("Domain.SellerAgg.Seller", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.SellerAgg.Seller", b =>
                 {
-                    b.OwnsMany("Domain.SellerAgg.SellerInventory", "Inventories", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.SellerAgg.SellerInventory", "Inventories", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
@@ -714,9 +714,9 @@ namespace Infrastructure.Migrations
                     b.Navigation("Inventories");
                 });
 
-            modelBuilder.Entity("Domain.UserAgg.User", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.UserAgg.User", b =>
                 {
-                    b.OwnsMany("Domain.UserAgg.UserAddress", "Addresses", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.UserAgg.UserAddress", "Addresses", b1 =>
                         {
                             b1.Property<Guid>("UserId")
                                 .HasColumnType("uniqueidentifier");
@@ -773,7 +773,7 @@ namespace Infrastructure.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("UserId");
 
-                            b1.OwnsOne("Common.Domain.ValueObjects.PhoneNumber", "PhoneNumber", b2 =>
+                            b1.OwnsOne("ShopLuxe.Common.Domain.ValueObjects.PhoneNumber", "PhoneNumber", b2 =>
                                 {
                                     b2.Property<Guid>("UserAddressUserId")
                                         .HasColumnType("uniqueidentifier");
@@ -799,7 +799,7 @@ namespace Infrastructure.Migrations
                                 .IsRequired();
                         });
 
-                    b.OwnsMany("Domain.UserAgg.UserRole", "Roles", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.UserAgg.UserRole", "Roles", b1 =>
                         {
                             b1.Property<Guid>("UserId")
                                 .HasColumnType("uniqueidentifier");
@@ -823,7 +823,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.OwnsMany("Domain.UserAgg.UserToken", "Tokens", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.UserAgg.UserToken", "Tokens", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
@@ -865,7 +865,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.OwnsMany("Domain.UserAgg.Wallet", "Wallets", b1 =>
+                    b.OwnsMany("ShopLuxe.Domain.UserAgg.Wallet", "Wallets", b1 =>
                         {
                             b1.Property<Guid>("UserId")
                                 .HasColumnType("uniqueidentifier");
@@ -911,7 +911,7 @@ namespace Infrastructure.Migrations
                     b.Navigation("Wallets");
                 });
 
-            modelBuilder.Entity("Domain.CategoryAgg.Category", b =>
+            modelBuilder.Entity("ShopLuxe.Domain.CategoryAgg.Category", b =>
                 {
                     b.Navigation("Childs");
                 });

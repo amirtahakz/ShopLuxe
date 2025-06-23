@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace ShopLuxe.Infrastructure.Migrations
 {
     public partial class InitDb : Migration
     {
