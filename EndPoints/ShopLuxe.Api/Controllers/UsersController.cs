@@ -11,6 +11,7 @@ using ShopLuxe.Common.AspNetCore;
 using ShopLuxe.Domain.RoleAgg.Enums;
 using ShopLuxe.Presentation.Facade.Users;
 using ShopLuxe.Query.Users.DTOs;
+using ShopLuxe.Application.Users.EditRole;
 
 namespace ShopLuxe.Api.Controllers;
 
@@ -87,6 +88,15 @@ public class UsersController : ApiController
     public async Task<ApiResult> Edit([FromForm] EditUserCommand command)
     {
         var result = await _userFacade.EditUser(command);
+        return CommandResult(result);
+    }
+
+    [PermissionChecker(Permission.Role_Management)]
+    [PermissionChecker(Permission.PanelAdmin)]
+    [HttpPut("EditUserRole")]
+    public async Task<ApiResult> EditUserRole([FromBody] EditUserRoleCommand command)
+    {
+        var result = await _userFacade.EditUserRole(command);
         return CommandResult(result);
     }
 }

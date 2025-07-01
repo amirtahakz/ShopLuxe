@@ -11,7 +11,7 @@ namespace ShopLuxe.Application.Sellers.Create
             RuleFor(r => r.ShopName)
                 .NotEmpty().WithMessage(ValidationMessages.required("نام فروشگاه"));
 
-            RuleFor(r => r.ShopName)
+            RuleFor(r => r.NationalCode)
                 .NotEmpty().WithMessage(ValidationMessages.required("کدملی"))
                 .ValidNationalId();
         }

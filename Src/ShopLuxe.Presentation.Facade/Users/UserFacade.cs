@@ -17,6 +17,7 @@ using ShopLuxe.Application.Users.RegisterUser;
 using ShopLuxe.Application.Users.AddToken;
 using ShopLuxe.Application.Users.ChangePassword;
 using ShopLuxe.Query.Users.DTOs;
+using ShopLuxe.Application.Users.EditRole;
 
 namespace ShopLuxe.Presentation.Facade.Users;
 
@@ -59,6 +60,14 @@ internal class UserFacade : IUserFacade
     }
 
     public async Task<OperationResult> EditUser(EditUserCommand command)
+    {
+        var result = await _mediator.Send(command);
+        if (result.Status == OperationResultStatus.Success)
+            await _cache.RemoveAsync(CacheKeys.User(command.UserId));
+        return result;
+    }
+
+    public async Task<OperationResult> EditUserRole(EditUserRoleCommand command)
     {
         var result = await _mediator.Send(command);
         if (result.Status == OperationResultStatus.Success)

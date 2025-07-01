@@ -102,7 +102,7 @@ services.AddJwtAuthentication(builder.Configuration);
 var app = builder.Build();
 
 
-app.UseIpRateLimiting();
+//app.UseIpRateLimiting();
 app.UseSwagger();
 app.UseSwaggerUI();
 

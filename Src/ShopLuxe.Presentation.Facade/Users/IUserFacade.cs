@@ -2,6 +2,7 @@
 using ShopLuxe.Application.Users.ChangePassword;
 using ShopLuxe.Application.Users.Create;
 using ShopLuxe.Application.Users.Edit;
+using ShopLuxe.Application.Users.EditRole;
 using ShopLuxe.Application.Users.RegisterUser;
 using ShopLuxe.Application.Users.RemoveToken;
 using ShopLuxe.Common.Application;
@@ -13,6 +14,7 @@ namespace ShopLuxe.Presentation.Facade.Users
     {
         Task<OperationResult> RegisterUser(RegisterUserCommand command);
         Task<OperationResult> EditUser(EditUserCommand command);
+        Task<OperationResult> EditUserRole(EditUserRoleCommand command);
         Task<OperationResult> CreateUser(CreateUserCommand command);
         Task<OperationResult> AddToken(AddUserTokenCommand command);
         Task<OperationResult> RemoveToken(RemoveUserTokenCommand command);
